@@ -1,0 +1,30 @@
+diff --git a/target/linux/ramips/image/mt76x8.mk b/target/linux/ramips/image/mt76x8.mk
+index f1873a7..f5f8030 100644
+--- a/target/linux/ramips/image/mt76x8.mk
++++ b/target/linux/ramips/image/mt76x8.mk
+@@ -1242,3 +1242,10 @@ define Device/zyxel_keenetic-extra-ii
+ 	check-size | zyimage -d 6162 -v "ZyXEL Keenetic Extra II"
+ endef
+ TARGET_DEVICES += zyxel_keenetic-extra-ii
++define Device/bigeon_sr1
++  IMAGE_SIZE := 16064k
++  DEVICE_VENDOR := Bigeon
++  DEVICE_MODEL := SR1
++  DEVICE_PACKAGES := kmod-mt76x2
++endef
++TARGET_DEVICES += bigeon_sr1
+diff --git a/target/linux/ramips/mt76x8/base-files/etc/board.d/02_network b/target/linux/ramips/mt76x8/base-files/etc/board.d/02_network
+index b47c499..7a4e4d7 100644
+--- a/target/linux/ramips/mt76x8/base-files/etc/board.d/02_network
++++ b/target/linux/ramips/mt76x8/base-files/etc/board.d/02_network
+@@ -8,6 +8,10 @@ ramips_setup_interfaces()
+ 	local board="$1"
+ 
+ 	case $board in
++	bigeon,sr1)
++		ucidef_add_switch "switch0" \
++			"0:lan" "1:lan" "2:lan" "3:lan" "4:lan" "6@eth0"
++		;;
+ 	7links,wlr-1230|\
+ 	7links,wlr-1240|\
+ 	alfa-network,awusfree1|\
