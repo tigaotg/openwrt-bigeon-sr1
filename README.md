@@ -59,3 +59,13 @@ Tested with:
 Do not flash firmware from this repository unless you have confirmed your device hardware matches the Bigeon SR1 described above.
 
 Keep backups of the original flash, especially the factory/EEPROM data and full flash dump.
+
+## LuCI attribution patch
+
+`patches/0002-luci-add-bigeon-sr1-attribution.patch` adds the following attribution to the LuCI Bootstrap footer:
+
+`Bigeon SR1 OpenWrt 适配：微茫世间 · GitHub`
+
+The GitHub link points to:
+
+`https://github.com/tigaotg/openwrt-bigeon-sr1`
