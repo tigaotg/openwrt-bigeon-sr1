@@ -1,4 +1,4 @@
-# OpenWrt support for Bigeon SR1
+# OpenWrt support for 智选品珈 SR1
 
 OpenWrt 24.10.5 device support for the Bigeon / 智选品珈 SR1 router.
 
